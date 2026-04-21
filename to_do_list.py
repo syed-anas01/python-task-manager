@@ -1,8 +1,13 @@
+import json
+def save_tasks(data):
+    with open ("save_tasks.json","w") as f:
+        json.dump(data,f)         
+
 def task():
     tasks=[]
 
     print("---welcome---")
-    tasks_input=int(input("enter total no.of tasks"))
+    tasks_input=int(input("enter total no.of tasks:"))
     for i in range(1 , tasks_input+1):
         task_name=input("enter task:")
         tasks.append(task_name)
@@ -34,6 +39,9 @@ def task():
             else:
                 print("no task found")    
         else:
-            break        
-        
+            save_tasks(tasks)
+            print("The tasks are saved")
+            break       
+
+       
 task()
